@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./style.css">
+  <title>Document</title>
+</head>
+<body>
+  <nav class="navbar">
+    <ul>
+    <li>
+    <a href="#" target="">
+    ドキュメント
+    </a>
+    </li>
+    <li>
+    <a href="#support" class="has-child" target="">
+    困ったときは
+    </a>
+    <ul>
+    <li>
+    <a href="#" target="">
+    サポート体制
+    </a>
+    </li>
+    <li>
+    <a href="#" target="">
+    フォーラム
+    </a>
+    </li>
+    </ul>
+    </li>
+    <li>
+    <a href="#" target="">
+    ブログ
+    </a>
+    </li>
+    <li>
+    <a href="#about" class="has-child" target="">
+    〇〇とは
+    </a>
+    <ul>
+    <li>
+    <a href="#" target="">
+    〇〇の特徴
+    </a>
+    </li>
+    <li>
+    <a href="#" target="">
+    導入するためには
+    </a>
+    </li>
+    <li>
+    <a href="#" target="">
+    機能一覧
+    </a>
+    </li>
+    <li>
+    <a href="#" target="">
+    動作環境
+    </a>
+    </li>
+    </ul>
+    </li>
+    </ul>
+    </nav>
+  <script src="./bundle/lazy-hover.js"></script>
+  <script>
+    lazyHover('.navbar > ul > li', {
+      switch: true
+    });
+  </script>
+</body>
+</html>
