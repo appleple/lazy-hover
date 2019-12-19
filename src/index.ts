@@ -11,7 +11,7 @@ type Config = {
 const defaultOption: Config = {
   delay: 1000,
   timespan: 10,
-  hoverClass: 'is-hoverd',
+  hoverClass: 'is-hovered',
   activeClass: 'is-active',
   switch: false
 }
