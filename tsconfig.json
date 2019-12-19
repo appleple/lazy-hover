@@ -1,8 +1,7 @@
 {
   "compilerOptions": {
       "target": "es5",
-      "module": "es6",
-      "moduleResolution": "node",
+      "moduleResolution": "Classic",
       "outDir": "./lib",
       "sourceMap": true,
       "declaration": true,
