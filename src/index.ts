@@ -10,7 +10,7 @@ type Config = {
 
 const defaultOption: Config = {
   delay: 1000,
-  timespan: 10,
+  timespan: 100,
   hoverClass: 'is-hovered',
   activeClass: 'is-active',
   switch: false
@@ -38,22 +38,25 @@ export default function (element: NodeListOf<Element> | string, option: Partial<
       if (opt.switch) {
         items.forEach(eachItem => {
           removeClass(eachItem, opt.activeClass);
-          setTimeout(() => {
+        });
+        timeout = setTimeout(() => {
+          items.forEach(eachItem => {
             removeClass(eachItem, opt.hoverClass);
-            addClass(item, opt.hoverClass);
-            setTimeout(() => {
-              addClass(item, opt.activeClass);
-            }, opt.timespan);
+          });
+          addClass(item, opt.hoverClass);
+          setTimeout(() => {
+            addClass(item, opt.activeClass);
           }, opt.timespan);
-        })
+        }, opt.timespan);
       } else {
         addClass(item, opt.hoverClass);
-        setTimeout(() => {
+        timeout = setTimeout(() => {
           addClass(item, opt.activeClass);
         }, opt.timespan);
       }
     });
     item.addEventListener('mouseleave', () => {
+      clearTimeout(timeout);
       timeout = setTimeout(() => {
         removeClass(item, opt.activeClass);
         setTimeout(() => {
