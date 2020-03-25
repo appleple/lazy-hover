@@ -6,6 +6,8 @@ declare type Config = {
     timespan: number;
     onOpen: () => void;
     onClose: () => void;
+    beforeOpen: () => void;
+    beforeClose: () => void;
 };
 export default function (element: NodeListOf<Element> | string, option: Partial<Config>): void;
 export {};

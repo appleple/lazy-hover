@@ -7,7 +7,9 @@ type Config = {
   switch: boolean
   timespan: number
   onOpen: () => void
-  onClose: () => void
+  onClose: () => void,
+  beforeOpen: () => void,
+  beforeClose: () => void
 }
 
 const defaultOption: Config = {
@@ -17,7 +19,9 @@ const defaultOption: Config = {
   activeClass: 'is-active',
   switch: false,
   onOpen: () => {},
-  onClose: () => {}
+  onClose: () => {},
+  beforeOpen: () => {},
+  beforeClose: () => {}
 }
 
 export default function (element: NodeListOf<Element> | string, option: Partial<Config>) {
@@ -48,6 +52,7 @@ export default function (element: NodeListOf<Element> | string, option: Partial<
             removeClass(eachItem, opt.hoverClass);
           });
           addClass(item, opt.hoverClass);
+          opt.beforeOpen();
           setTimeout(() => {
             addClass(item, opt.activeClass);
             opt.onOpen();
@@ -55,6 +60,7 @@ export default function (element: NodeListOf<Element> | string, option: Partial<
         }, opt.timespan);
       } else {
         addClass(item, opt.hoverClass);
+        opt.beforeOpen();
         timeout = setTimeout(() => {
           addClass(item, opt.activeClass);
           opt.onOpen();
@@ -65,6 +71,7 @@ export default function (element: NodeListOf<Element> | string, option: Partial<
       clearTimeout(timeout);
       timeout = setTimeout(() => {
         removeClass(item, opt.activeClass);
+        opt.beforeClose();
         setTimeout(() => {
           removeClass(item, opt.hoverClass);
           opt.onClose();
